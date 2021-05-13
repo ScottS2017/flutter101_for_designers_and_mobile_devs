@@ -5,10 +5,7 @@ import 'package:flutter_101_designers_and_mobile/widgets/custom_text_field.dart'
 class Home extends StatefulWidget {
   Home({
     Key? key,
-    required this.title,
   }) : super(key: key);
-
-  final String title;
 
   @override
   _HomeState createState() => _HomeState();
@@ -54,13 +51,21 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        /// 'widget' means to go get the title variable that belongs
-        /// to the parent StatefulWidget
-        title: Text(
-          widget.title,
-          semanticsLabel: widget.title,
+        /// Just for fun, let's replace the normal hamburger icon
+        /// with our own custom setup
+        automaticallyImplyLeading: false,
+        title: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 1),
+          child: TextButton(
+            onPressed: () => print('Do something cool with this'),
+            child: RotatedBox(
+              quarterTurns: 2,
+              child: Icon(Icons.wb_incandescent_rounded, color: Colors.white),
+            ),
+          ),
         ),
       ),
+
       body: Container(
         margin: const EdgeInsets.symmetric(vertical: 88, horizontal: 150),
 
