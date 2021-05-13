@@ -23,6 +23,7 @@ class ImmutableCustomTextField extends StatelessWidget {
         fontWeight: FontWeight.w600,
         fontStyle: FontStyle.italic,
       ),
+      semanticsLabel: text,
     );
   }
 }

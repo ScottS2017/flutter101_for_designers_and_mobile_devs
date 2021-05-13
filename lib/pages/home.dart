@@ -56,7 +56,10 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         /// 'widget' means to go get the title variable that belongs
         /// to the parent StatefulWidget
-        title: Text(widget.title),
+        title: Text(
+          widget.title,
+          semanticsLabel: widget.title,
+        ),
       ),
       body: Container(
         margin: const EdgeInsets.symmetric(vertical: 88, horizontal: 150),
@@ -182,6 +185,7 @@ ${car4.engineIsStarted == true ? 'started' : 'off'}''',
         /// cause the function to trigger on build, instead of only
         /// when the button is pressed
         onPressed: _turnTheKey,
+        tooltip: 'Turn the engine on or off',
         child: Icon(Icons.refresh),
       ),
     );
